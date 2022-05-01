@@ -21,7 +21,7 @@ export class GetStatementOperationUseCase {
 
   async execute({ user_id, statement_id }: IRequest) {
     const user = await this.usersRepository.findById(user_id);
-
+    
     if(!user) {
       throw new GetStatementOperationError.UserNotFound();
     }

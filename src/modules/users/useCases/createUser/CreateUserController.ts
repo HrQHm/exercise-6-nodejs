@@ -7,7 +7,6 @@ export class CreateUserController {
   async execute(request: Request, response: Response) {
     
     const { name, email, password } = request.body;
-    
     const createUser = container.resolve(CreateUserUseCase);
 
     await createUser.execute({
