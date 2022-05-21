@@ -62,8 +62,6 @@ describe("Create a statement", () =>  {
         amount: 200,
         description: "Test Statement Operation WITHDRAW"
       });
-
-      console.log(test);
   
     }).rejects.toBeInstanceOf(AppError);
   });

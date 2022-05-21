@@ -12,4 +12,10 @@ export namespace CreateStatementError {
       super('Insufficient funds', 400);
     }
   }
+
+  export class SenderUserNotFound extends AppError {
+    constructor() {
+      super('Sender user not found', 400);
+    }
+  }
 }

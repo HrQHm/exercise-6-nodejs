@@ -6,6 +6,7 @@ export class BalanceMap {
       id,
       amount,
       description,
+      sender_id,
       type,
       created_at,
       updated_at
@@ -15,6 +16,7 @@ export class BalanceMap {
         amount: Number(amount),
         description,
         type,
+        sender_id: sender_id === null ? undefined : sender_id,
         created_at,
         updated_at
       }
