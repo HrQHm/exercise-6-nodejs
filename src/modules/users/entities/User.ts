@@ -23,6 +23,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column()
+  phone: string;
+
   @OneToMany(() => Statement, statement => statement.user)
   statement: Statement[];
 
@@ -33,7 +36,7 @@ export class User {
   updated_at: Date;
 
   constructor() {
-    if(!this.id) {
+    if (!this.id) {
       this.id = uuid();
     }
   }

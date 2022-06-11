@@ -21,10 +21,21 @@ export class UsersRepository implements IUsersRepository {
     return this.repository.findOne(user_id);
   }
 
-  async create({ name, email, password }: ICreateUserDTO): Promise<User> {
-    
-    const user = this.repository.create({ name, email, password });
+  async create({ name, email, password, phone }: ICreateUserDTO): Promise<User> {
 
-    return this.repository.save(user);
+    const user = this.repository.create({ name, email, password, phone });
+    await this.repository.save(user);
+    return user;
+  }
+
+
+  async updateUserPhone(user_id: string, phone: string): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ phone })
+      .where("id = :user_id")
+      .setParameters({ user_id })
+      .execute()
   }
 }
